@@ -57,6 +57,7 @@ main {
     border: none;
     color: #3d3d3f;
     border-radius: 8%;
+    cursor: pointer;
 }
 
 /* MATCH SECTION (TO FADE IN AFTER BUTTON PRESS) */
@@ -90,6 +91,7 @@ main {
     min-width: 130px;
     padding: 1rem;
     text-align: center;
+    cursor: pointer;
 }
 
 .player-hand {
