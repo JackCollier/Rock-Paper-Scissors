@@ -62,7 +62,7 @@ const game = () => {
 
     //Winner logic - swtich statement for increased readability 
     const compareHands = (playerChoice, computerChoice) => {
-        //Update Text to display winner
+        // Winner variable
         const winner = document.querySelector('.winner');
         switch (playerChoice) {
           case computerChoice:
