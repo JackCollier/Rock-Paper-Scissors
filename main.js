@@ -1,9 +1,8 @@
 // Scoping within fuctions to avoid global variables
 const game = () => {
-    let pScore = 0;
-    let cScore = 0;
+    // Using destructuring to declare multiple variables at once
+    let [pScore, cScore] = [0, 0];
 
-    // Start game 
     const startGame = () => {
         // Using querySelector instead of getElementsByClassName for performance
         const playBtn = document.querySelector('.intro button');
@@ -23,7 +22,7 @@ const game = () => {
         const playerHand = document.querySelector('.player-hand');
         const computerHand = document.querySelector('.computer-hand');
         const hands = document.querySelectorAll('.hands img')
-        // After each animation hand img is reset
+        // Resets animation 
         hands.forEach(hand => {
             hand.addEventListener('animationend', function() {
                 this.style.animation = '';
@@ -37,10 +36,7 @@ const game = () => {
         options.forEach(option => {
             option.addEventListener('click', function() {
                 //Computer choice
-                const computerNumber = Math.floor(Math.random() * 3);
-                const computerChoice = computerOptions[computerNumber];
-                //console.log(option.textContent);
-                //console.log(computerChoice);
+                const computerChoice = computerOptions[Math.floor(Math.random() * 3)];
 
                 // Waits for animation to end before updating score & hand image
                 setTimeout(() => {
@@ -59,10 +55,9 @@ const game = () => {
     };
 
     const updateScore = () => {
-        const playerScore = document.querySelector('.player-score p');
-        const computerScore = document.querySelector('.computer-score p');
-        playerScore.textContent = pScore
-        computerScore.textContent = cScore
+        const [playerScore, computerScore] = document.querySelectorAll('.score p');
+        playerScore.textContent = pScore;
+        computerScore.textContent = cScore;
     };
 
     //Winner logic - can be improved with switch statement rather than multiple if statements for readability 
