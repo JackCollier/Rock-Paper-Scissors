@@ -60,63 +60,49 @@ const game = () => {
         computerScore.textContent = cScore;
     };
 
-    //Winner logic - can be improved with switch statement rather than multiple if statements for readability 
+    //Winner logic - swtich statement for increased readability 
     const compareHands = (playerChoice, computerChoice) => {
         //Update Text to display winner
-        const winner = document.querySelector('.winner')
-        //Check for tie
-        if(playerChoice === computerChoice) {
+        const winner = document.querySelector('.winner');
+        switch (playerChoice) {
+          case computerChoice:
             winner.textContent = 'TIE';
-            return;
+            break;
+          case 'rock':
+            if (computerChoice === 'scissors') {
+              winner.textContent = 'Player Wins';
+              pScore++;
+              updateScore();
+            } else {
+              winner.textContent = 'Computer Wins';
+              cScore++;
+              updateScore();
+            }
+            break;
+          case 'paper':
+            if (computerChoice === 'rock') {
+              winner.textContent = 'Player Wins';
+              pScore++;
+              updateScore();
+            } else {
+              winner.textContent = 'Computer Wins';
+              cScore++;
+              updateScore();
+            }
+            break;
+          case 'scissors':
+            if (computerChoice === 'paper') {
+              winner.textContent = 'Player Wins';
+              pScore++;
+              updateScore();
+            } else {
+              winner.textContent = 'Computer Wins';
+              cScore++;
+              updateScore();
+            }
+            break;
         }
-        //Check for rock
-        if(playerChoice === 'rock') {
-            if(computerChoice === 'scissors') {
-                winner.textContent = 'Player Wins';
-                pScore++
-                updateScore();
-                return;
-            } else {
-                winner.textContent = 'Computer Wins';
-                cScore++
-                updateScore();
-                return;
-            }
-        };
-        //Check for paper
-        if(playerChoice === 'paper') {
-            if(computerChoice === 'rock') {
-                winner.textContent = 'Player Wins';
-                pScore++
-                updateScore();
-                return;
-            } else {
-                winner.textContent = 'Computer Wins';
-                cScore++
-                updateScore();
-                return;
-            }
-        };
-        //Check for scissors
-        if(playerChoice === 'scissors') {
-            if(computerChoice === 'paper') {
-                winner.textContent = 'Player Wins';
-                pScore++
-                updateScore();
-                return;
-            } else {
-                winner.textContent = 'Computer Wins';
-                cScore++
-                updateScore();
-                return;
-            }
-        };
-
-    }
-
-
-
-
+      };
 
     // Call inner functions
     startGame()
