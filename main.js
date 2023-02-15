@@ -5,10 +5,12 @@ const game = () => {
 
     // Start game 
     const startGame = () => {
+        // Using querySelector instead of getElementsByClassName for performance
         const playBtn = document.querySelector('.intro button');
         const introScrn = document.querySelector('.intro');
         const matchScrn = document.querySelector('.match');
         // On play button click fades out intro screen and fades in match screen through adding css classes with opacity styling
+        // Use addEventListener instead of onclick for better separation of concerns
         playBtn.addEventListener('click', () => {
             introScrn.classList.add('fadeOut');
             matchScrn.classList.add('fadeIn');
@@ -28,7 +30,7 @@ const game = () => {
             })
         })
 
-        // Computer options const as variables won't be reassigned
+        // Using const instead of let for variables that don't need to be reassigned
         const computerOptions = ['rock', 'paper', 'scissors'];
 
         //  Checks for the user choice and decides the computers, it then passes the outcome to compareHands to decide a winner.
